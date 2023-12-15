@@ -1,0 +1,21 @@
+{
+    "appName": "RecipeAI",
+    "selectLanguage": "Pilih Bahasa",
+    "start":"Mulai",
+    "next": "Berikutnya",
+    "back": "Kembali",
+    "reload": "Muat Ulang",
+    "ingredients":"What ingredients do you have today?",
+    "recommendation": "Ini adalah rekomendasi untuk hidangan yang dapat Anda buat",
+    "generateReceipt": "Buat Resep",
+    "cannotEmpty":"Tidak boleh kosong",
+    "history":"Riwayat",
+    "smartRecipe": "Saran Resep Cerdas",
+    "smartRecipeDsc": "Jelajahi rekomendasi resep yang dipersonalisasi yang dihasilkan oleh algoritma kecerdasan buatan kami. Temukan rasa baru yang disesuaikan dengan preferensi Anda.",
+    "discover": "Temukan Citra Rasa Global dengan Kecerdasan Buatan",
+    "discoverDsc": "Mulailah petualangan kuliner dengan saran resep kecerdasan buatan kami. Jelajahi berbagai masakan dan bawa cita rasa dari berbagai tempat.",
+    "interactive": "Tutorial Memasak Interaktif",
+    "interactiveDsc": "Pelajari teknik dasar, tips memasak, dan dapatkan pengalaman langsung dalam membuat hidangan lezat seperti seorang koki berpengalaman.",
+    "culinary": "Kreativitas Kuliner Terwujud",
+    "culinaryDsc": "Lepaskan kreativitas kuliner Anda dengan resep yang terinspirasi oleh kecerdasan buatan. Eksperimen dengan hidangan inovatif dan tingkatkan keterampilan memasak Anda."
+}
