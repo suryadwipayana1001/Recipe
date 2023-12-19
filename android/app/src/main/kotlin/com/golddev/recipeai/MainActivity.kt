@@ -1,4 +1,4 @@
-package com.goldev.recipeai
+package com.golddev.recipeai
 
 import io.flutter.embedding.android.FlutterActivity
 

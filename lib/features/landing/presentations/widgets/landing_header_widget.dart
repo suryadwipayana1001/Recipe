@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:recipeai/core/core.dart';
-import 'package:recipeai/core/presentation/providers/core_provider.dart';
 
 class LandingHeaderWidget extends StatefulWidget {
   LandingHeaderWidget({super.key, required this.headerSlider});

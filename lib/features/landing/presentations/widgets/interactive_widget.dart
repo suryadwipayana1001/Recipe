@@ -17,24 +17,31 @@ class InteractiveWidget extends StatelessWidget {
           LandingHeaderWidget(
             headerSlider: 3,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
-            child: Image.asset(
-              suhshiCook,
-              height: 300,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
+                  child: Image.asset(
+                    suhshiCook,
+                    height: 300,
+                  ),
+                ),
+                Text(
+                  appLoc.interactive,
+                  textAlign: TextAlign.center,
+                  style: largeBoldTextStyle(),
+                ),
+                mediumVerticalSpacing(),
+                Text(
+                  appLoc.interactiveDsc,
+                  style: mediumNormalTextStyle(),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-          ),
-          Text(
-            appLoc.interactive,
-            textAlign: TextAlign.center,
-            style: largeBoldTextStyle(),
-          ),
-          mediumVerticalSpacing(),
-          Text(
-            appLoc.interactiveDsc,
-            style: mediumNormalTextStyle(),
-            textAlign: TextAlign.center,
-          ),
+          )
         ],
       ),
     );

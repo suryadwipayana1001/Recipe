@@ -17,24 +17,31 @@ class CulinaryWidget extends StatelessWidget {
           LandingHeaderWidget(
             headerSlider: 4,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
-            child: Image.asset(
-              pastryChef,
-              height: 300,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
+                  child: Image.asset(
+                    pastryChef,
+                    height: 300,
+                  ),
+                ),
+                Text(
+                  appLoc.culinary,
+                  textAlign: TextAlign.center,
+                  style: largeBoldTextStyle(),
+                ),
+                mediumVerticalSpacing(),
+                Text(
+                  appLoc.culinaryDsc,
+                  style: mediumNormalTextStyle(),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-          ),
-          Text(
-            appLoc.culinary,
-            textAlign: TextAlign.center,
-            style: largeBoldTextStyle(),
-          ),
-          mediumVerticalSpacing(),
-          Text(
-            appLoc.culinaryDsc,
-            style: mediumNormalTextStyle(),
-            textAlign: TextAlign.center,
-          ),
+          )
         ],
       ),
     );

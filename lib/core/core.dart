@@ -12,6 +12,8 @@ export 'presentation/widgets/custom_scaffold.dart';
 export 'presentation/widgets/custom_appbar.dart';
 export 'presentation/widgets/custom_drawer.dart';
 export 'presentation/widgets/custom_textfield.dart';
+export 'presentation/widgets/custom_loading.dart';
+export 'presentation/widgets/custom_error.dart';
 export 'error/failure.dart';
 export 'static/string.dart';
 export 'static/app_settings.dart';

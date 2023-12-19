@@ -35,13 +35,16 @@ class _MainAppState extends State<MainApp> {
             navigatorKey: locator<GlobalKey<NavigatorState>>(),
             debugShowCheckedModeBanner: false,
             onGenerateRoute: router.generateRoute,
-            locale: Locale("${provider.language}", ''),
+            locale: Locale("${locator<Session>().isLang}", ''),
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            theme: ThemeData(
+              useMaterial3: false,
+            ),
             supportedLocales: [
               Locale('en', ''),
               Locale('id', ''),

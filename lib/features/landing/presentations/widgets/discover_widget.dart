@@ -16,24 +16,31 @@ class DiscoverWigdet extends StatelessWidget {
           LandingHeaderWidget(
             headerSlider: 2,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
-            child: Image.asset(
-              koreanFoods,
-              height: 300,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
+                  child: Image.asset(
+                    koreanFoods,
+                    height: 300,
+                  ),
+                ),
+                Text(
+                  appLoc.discover,
+                  textAlign: TextAlign.center,
+                  style: largeBoldTextStyle(),
+                ),
+                mediumVerticalSpacing(),
+                Text(
+                  appLoc.discoverDsc,
+                  style: mediumNormalTextStyle(),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-          ),
-          Text(
-            appLoc.discover,
-            textAlign: TextAlign.center,
-            style: largeBoldTextStyle(),
-          ),
-          mediumVerticalSpacing(),
-          Text(
-            appLoc.discoverDsc,
-            style: mediumNormalTextStyle(),
-            textAlign: TextAlign.center,
-          ),
+          )
         ],
       ),
     );

@@ -7,6 +7,11 @@ class CustomButton extends StatefulWidget {
   final double? height;
   final double? width;
   final double? circular;
+  final TextStyle? textStyle;
+  final BorderRadius? borderRadius;
+  final double? elevation;
+  final Color? backgroundColor;
+  final Color? borderColor;
   final void Function() onPressed;
 
   CustomButton(
@@ -15,7 +20,12 @@ class CustomButton extends StatefulWidget {
       required this.onPressed,
       this.height,
       this.width,
-      this.circular})
+      this.circular,
+      this.borderRadius,
+      this.textStyle,
+      this.elevation,
+      this.borderColor,
+      this.backgroundColor})
       : super(key: key);
 
   @override
@@ -27,18 +37,19 @@ class _CustomButtonState extends State<CustomButton> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: buttonColor,
+        backgroundColor: widget.backgroundColor ?? buttonColor,
         padding: EdgeInsets.all(paddingSizeExtraSmall),
-        elevation: 2.0,
+        elevation: widget.elevation ?? 2.0,
         fixedSize: Size(widget.width ?? 80.0, widget.height ?? 50.0),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(widget.circular ?? 20.0),
-        ),
+            borderRadius: widget.borderRadius ??
+                BorderRadius.circular(widget.circular ?? 20.0),
+            side: BorderSide(color: widget.borderColor ?? buttonColor)),
       ),
       onPressed: widget.onPressed,
       child: Text(
         widget.text,
-        style: buttonTextStyle,
+        style: widget.textStyle ?? buttonTextStyle(),
       ),
     );
   }

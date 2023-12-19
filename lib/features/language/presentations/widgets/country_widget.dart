@@ -39,7 +39,7 @@ class _CountryWidgetState extends State<CountryWidget> {
               ),
               Spacer(),
               Visibility(
-                  visible: provider.language == widget.codeLang,
+                  visible: locator<Session>().isLang == widget.codeLang,
                   child: Icon(Icons.check))
             ],
           ),

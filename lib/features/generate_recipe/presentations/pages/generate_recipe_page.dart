@@ -17,43 +17,49 @@ class _GenerateRecipePageState extends State<GenerateRecipePage> {
     return Consumer<CoreProvider>(
       builder: (context, provider, _) {
         return AppContainer(
-          bgColor: primaryColor,
+          automaticallyImplyLeading: true,
+          bgColor: white,
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(sizeMedium),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(bgIngredients),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Padding(
+              child: Form(
+                key: provider.formKey,
+                child: Column(
+                  children: [
+                    Padding(
                       padding: EdgeInsets.all(sizeLarge),
                       child: Text(
                         appLoc.ingredients,
                         style: largeBoldTextStyle(),
                       ),
                     ),
-                  ),
-                  largeVerticalSpacing(),
-                  CustomTextField(
-                    maxLines: 7,
-                    controller: provider.ingredientsController,
-                  ),
-                  largeVerticalSpacing(),
-                  CustomButton(
-                    width: SizeConfig(context).appWidth(100),
-                    text: appLoc.generateReceipt,
-                    onPressed: () {
-                      Navigator.pushNamed(context, ResultPage.routeName);
-                    },
-                  ),
-                  largeVerticalSpacing(),
-                  Image.asset(healtyOptions)
-                ],
+                    largeVerticalSpacing(),
+                    CustomTextField(
+                      hintText: appLoc.example,
+                      maxLines: 7,
+                      controller: provider.ingredientsController,
+                      fieldValidator: ValidationHelper(
+                        requiredMessage: appLoc.fieldRequired,
+                        loc: appLoc,
+                        isError: (error) =>
+                            provider.setIngredientsError = error,
+                        typeField: TypeField.none,
+                      ).validate(),
+                    ),
+                    largeVerticalSpacing(),
+                    CustomButton(
+                      width: SizeConfig(context).appWidth(100),
+                      text: appLoc.generateReceipt,
+                      onPressed: () {
+                        if (provider.formKey.currentState!.validate()) {
+                          Navigator.pushNamed(context, ResultPage.routeName);
+                        }
+                      },
+                    ),
+                    largeVerticalSpacing(),
+                    Image.asset(healtyOptions)
+                  ],
+                ),
               ),
             ),
           ),

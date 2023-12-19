@@ -1,10 +1,11 @@
 {
-  "appName":"Generate Recipe Pro",
+  "appName":"AIRecipe - Recipe Generator",
+  "appBarName":"AIRecipe",
   "selectLanguage":"Choose the language",
   "start":"Start",
   "next":"Next",
   "back":"Back",
-  "reload":"Reload",
+  "reload":"Other Recipe",
   "ingredients":"What ingredients do you have today?",
   "recommendation":"These are recommendations for dishes you can make",
   "generateReceipt":"Generate Recipe",
@@ -17,5 +18,11 @@
   "interactive":"Interactive Cooking Tutorials",
   "interactiveDsc":"Learn essential techniques, cooking tips, and get hands-on experience in crafting delicious meals like a seasoned chef.",
   "culinary":"Culinary Creativity Unleashed",
-  "culinaryDsc":"Unlock your culinary creativity with AI-inspired recipes. Experiment with innovative dishes and elevate your cooking skills."
+  "culinaryDsc":"Unlock your culinary creativity with AI-inspired recipes. Experiment with innovative dishes and elevate your cooking skills.",
+  "fieldRequired":"This field is required",
+  "loading":"Please wait,",
+  "createRecipe":"Currently creating a recipe",
+  "example":"Example : Salt, sugar, garlic, pepper, chicken meat and tomato",
+  "serverError":"Server error,",
+  "tryMoment":"please try again in a moment."
 }

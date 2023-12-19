@@ -1,8 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
-import 'package:recipeai/features/landing/presentations/pages/landing_page.dart';
+import 'package:recipeai/features/language/presentations/pages/language_page.dart';
 
 import '../../core.dart';
 
@@ -19,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
     int delay = 3;
     Future.delayed(
       Duration(seconds: delay),
-      () => {Navigator.pushReplacementNamed(context, LandingPage.routeName)},
+      () => {Navigator.pushReplacementNamed(context, LanguagePage.routeName)},
     );
     super.initState();
   }
@@ -28,9 +26,30 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     appLoc = AppLocalizations.of(context)!;
     return Scaffold(
-      backgroundColor: primaryColor,
-      body: Column(
-        children: [Text("Test")],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(bgImage),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              logo,
+              width: 150,
+            ),
+            largeVerticalSpacing(),
+            Center(
+              child: Text(
+                appLoc.appName,
+                style: largeBoldTextStyle(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

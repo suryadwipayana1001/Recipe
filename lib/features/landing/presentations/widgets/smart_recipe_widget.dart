@@ -16,24 +16,31 @@ class SmartRecipeWidget extends StatelessWidget {
           LandingHeaderWidget(
             headerSlider: 1,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
-            child: Image.asset(
-              deconstructed,
-              height: 300,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: sizeExtraLarge),
+                  child: Image.asset(
+                    deconstructed,
+                    height: 300,
+                  ),
+                ),
+                Text(
+                  appLoc.smartRecipe,
+                  textAlign: TextAlign.center,
+                  style: largeBoldTextStyle(),
+                ),
+                mediumVerticalSpacing(),
+                Text(
+                  appLoc.smartRecipeDsc,
+                  style: mediumNormalTextStyle(),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-          ),
-          Text(
-            appLoc.smartRecipe,
-            textAlign: TextAlign.center,
-            style: largeBoldTextStyle(),
-          ),
-          mediumVerticalSpacing(),
-          Text(
-            appLoc.smartRecipeDsc,
-            style: mediumNormalTextStyle(),
-            textAlign: TextAlign.center,
-          ),
+          )
         ],
       ),
     );

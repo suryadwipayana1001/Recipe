@@ -39,6 +39,6 @@ class SessionHelper implements Session {
   int get isIndex => pref.getInt(IS_INDEX) ?? 0;
   @override
   String get isToken => pref.getString(SESSION_TOKEN) ?? '';
-  String get isLang => pref.getString(IS_LANG) ?? '';
+  String get isLang => pref.getString(IS_LANG) ?? 'en';
   bool get isLanding => pref.getBool(IS_LANDING) ?? false;
 }

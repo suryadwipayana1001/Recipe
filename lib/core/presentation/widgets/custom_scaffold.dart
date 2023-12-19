@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../core.dart';
-import 'custom_drawer.dart';
 
 class AppContainer extends StatefulWidget {
   const AppContainer({
@@ -15,6 +13,7 @@ class AppContainer extends StatefulWidget {
     this.title,
     this.resizeToAvoidBottomInset = true,
     this.withoutImage = false,
+    this.automaticallyImplyLeading = false,
   });
   final Widget body;
   final Color bgColor;
@@ -23,7 +22,7 @@ class AppContainer extends StatefulWidget {
   final Widget? floatingActionButton;
   final String? title;
   final bool? withoutImage;
-
+  final bool automaticallyImplyLeading;
   final bool resizeToAvoidBottomInset;
 
   final FloatingActionButtonLocation? floatingActionButtonLocation;
@@ -38,23 +37,17 @@ class _AppContainerState extends State<AppContainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
-      backgroundColor: widget.bgColor,
+      backgroundColor: white,
       key: _key,
       appBar: CustomAppBar(
+        automaticallyImplyLeading: widget.automaticallyImplyLeading,
         title: widget.title,
         onTap: () {
           _key.currentState!.openDrawer();
         },
       ),
       // drawer: CustomDrawer(replacePage: widget.replacePage),
-      body: Container(
-          decoration: BoxDecoration(
-              color: widget.bgColor,
-              image: widget.withoutImage == true
-                  ? null
-                  : DecorationImage(
-                      image: AssetImage(bgImage), fit: BoxFit.cover)),
-          child: widget.body),
+      body: widget.body,
       floatingActionButtonLocation: widget.floatingActionButtonLocation,
       floatingActionButton: widget.floatingActionButton,
     );
