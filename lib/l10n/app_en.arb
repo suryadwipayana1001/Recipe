@@ -24,5 +24,6 @@
   "createRecipe":"Currently creating a recipe",
   "example":"Example : Salt, sugar, garlic, pepper, chicken meat and tomato",
   "serverError":"Server error,",
+  "noInternet":"No Internet",
   "tryMoment":"please try again in a moment."
 }

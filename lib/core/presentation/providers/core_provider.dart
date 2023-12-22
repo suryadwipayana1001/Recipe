@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:recipeai/core/presentation/providers/result_state.dart';
 import '../../../features/result_recipe/domain/usecase/result_usecase.dart';
 import '../../core.dart';
@@ -9,8 +9,8 @@ class CoreProvider with ChangeNotifier {
   CoreProvider({required this.resultQuestation});
 
   String? _result;
-  RewardedAd? _rewardedAd;
-  RewardedAd? _rewardAd;
+  // RewardedAd? _rewardedAd;
+  // RewardedAd? _rewardAd;
   String? _language = "en";
   TextEditingController _ingredientsController = TextEditingController();
   int _headerSlider = 1;
@@ -23,15 +23,15 @@ class CoreProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  set setRewardedAd(val) {
-    _rewardedAd = val;
-    notifyListeners();
-  }
+  // set setRewardedAd(val) {
+  //   _rewardedAd = val;
+  //   notifyListeners();
+  // }
 
-  set setRewardAd(val) {
-    _rewardAd = val;
-    notifyListeners();
-  }
+  // set setRewardAd(val) {
+  //   _rewardAd = val;
+  //   notifyListeners();
+  // }
 
   set setHeaderSlider(val) {
     _headerSlider = val;
@@ -48,31 +48,31 @@ class CoreProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void initializeRewardAd() {
-    RewardedAd.load(
-      adUnitId: AdHelper.rewardedAdUnitId,
-      request: const AdRequest(),
-      rewardedAdLoadCallback: RewardedAdLoadCallback(
-        onAdLoaded: (ad) {
-          setRewardAd = ad;
-          ad.fullScreenContentCallback = FullScreenContentCallback(
-            onAdDismissedFullScreenContent: (RewardedAd ad) {
-              ad.dispose();
-              setRewardedAd = null;
-              initializeRewardAd();
-            },
-            onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
-              ad.dispose();
-              initializeRewardAd();
-            },
-          );
-        },
-        onAdFailedToLoad: (LoadAdError error) {
-          printWarning('RewardedAd failed to load: $error');
-        },
-      ),
-    );
-  }
+  // void initializeRewardAd() {
+  //   RewardedAd.load(
+  //     adUnitId: AdHelper.rewardedAdUnitId,
+  //     request: const AdRequest(),
+  //     rewardedAdLoadCallback: RewardedAdLoadCallback(
+  //       onAdLoaded: (ad) {
+  //         setRewardAd = ad;
+  //         ad.fullScreenContentCallback = FullScreenContentCallback(
+  //           onAdDismissedFullScreenContent: (RewardedAd ad) {
+  //             ad.dispose();
+  //             setRewardedAd = null;
+  //             initializeRewardAd();
+  //           },
+  //           onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
+  //             ad.dispose();
+  //             initializeRewardAd();
+  //           },
+  //         );
+  //       },
+  //       onAdFailedToLoad: (LoadAdError error) {
+  //         printWarning('RewardedAd failed to load: $error');
+  //       },
+  //     ),
+  //   );
+  // }
 
   Stream<ResultState> fetch() async* {
     yield ResultLoading();
@@ -94,8 +94,8 @@ class CoreProvider with ChangeNotifier {
     });
   }
 
-  RewardedAd? get rewardedAd => _rewardedAd;
-  RewardedAd? get rewardAd => _rewardAd;
+  // RewardedAd? get rewardedAd => _rewardedAd;
+  // RewardedAd? get rewardAd => _rewardAd;
   String? get language => _language;
   TextEditingController get ingredientsController => _ingredientsController;
   int get headerSlider => _headerSlider;

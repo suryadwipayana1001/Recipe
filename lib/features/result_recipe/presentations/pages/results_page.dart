@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:recipeai/features/result_recipe/domain/usecase/result_usecase.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../../../core/core.dart';
 import '../../../../core/presentation/providers/core_provider.dart';
 import '../../../../core/presentation/providers/result_state.dart';
@@ -39,9 +41,29 @@ class _ResultPageState extends State<ResultPage> {
                                 child: Column(
                                   children: [
                                     Image.asset(femaleChef),
-                                    Text(
-                                      appLoc.recommendation,
-                                      style: largeBoldTextStyle(),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            appLoc.recommendation,
+                                            textAlign: TextAlign.center,
+                                            style: largeBoldTextStyle(),
+                                          ),
+                                        ),
+                                        smallHorizontalSpacing(),
+                                        GestureDetector(
+                                            onTap: () {
+                                              Share.share(
+                                                  context
+                                                      .read<CoreProvider>()
+                                                      .result
+                                                      .toString(),
+                                                  subject: 'RecipeAI');
+                                            },
+                                            child: Icon(Icons.share)),
+                                        // smallHorizontalSpacing(),
+                                        // Icon(Icons.bookmark_border),
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -60,7 +82,8 @@ class _ResultPageState extends State<ResultPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(sizeMedium),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: sizeLarge, vertical: sizeMedium),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -69,7 +92,7 @@ class _ResultPageState extends State<ResultPage> {
                               elevation: 0.0,
                               backgroundColor: white,
                               width: 130,
-                              height: 40,
+                              height: 45,
                               circular: 10,
                               text: appLoc.back,
                               borderRadius: BorderRadius.only(
@@ -82,8 +105,13 @@ class _ResultPageState extends State<ResultPage> {
                               }),
                           CustomButton(
                             width: 130,
-                            height: 40,
+                            height: 45,
                             circular: 10,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0),
+                            ),
                             text: appLoc.reload,
                             onPressed: () {
                               Navigator.pop(context);
@@ -98,10 +126,10 @@ class _ResultPageState extends State<ResultPage> {
                 ),
               );
             case ResultFailure:
-              return CustomError();
+              return CustomError(text: appLoc.tryMoment);
           }
         }
-        return const SizedBox();
+        return CustomError(text: appLoc.noInternet);
       },
     );
   }

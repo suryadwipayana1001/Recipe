@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:recipeai/core/core.dart';
 
-class CustomError extends StatelessWidget {
-  const CustomError({super.key});
+class CustomError extends StatefulWidget {
+  String text;
+  CustomError({super.key, required this.text});
 
+  @override
+  State<CustomError> createState() => _CustomErrorState();
+}
+
+class _CustomErrorState extends State<CustomError> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +26,7 @@ class CustomError extends StatelessWidget {
               style: errorTextStyle,
             ),
             Text(
-              appLoc.tryMoment,
+              widget.text,
               style: mediumNormalTextStyle(),
               textAlign: TextAlign.center,
             ),

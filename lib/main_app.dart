@@ -43,8 +43,8 @@ class _MainAppState extends State<MainApp> {
               GlobalCupertinoLocalizations.delegate,
             ],
             theme: ThemeData(
-              useMaterial3: false,
-            ),
+                // useMaterial3: false,
+                ),
             supportedLocales: [
               Locale('en', ''),
               Locale('id', ''),

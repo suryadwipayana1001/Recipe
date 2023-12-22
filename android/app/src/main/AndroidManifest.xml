@@ -4,7 +4,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" tools:node="remove" />
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- <uses-permission android:name="com.google.android.gms.permission.AD_ID"/> -->
+
    <application
         android:requestLegacyExternalStorage="true"
         android:label="RecipeAI"
@@ -36,12 +39,12 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data
+        <!-- <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2976731228725494~1205779301"/>
         <meta-data
             android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT"
-            android:value="true"/>
+            android:value="true"/> -->
         <!-- <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~4354546703" /> -->

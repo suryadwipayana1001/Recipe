@@ -7,7 +7,7 @@
     "back": "Kembali",
     "reload": "Menu Lain",
     "ingredients":"Bahan apa yang kamu punya hari ini?",
-    "recommendation": "Ini adalah rekomendasi untuk hidangan yang dapat Anda buat",
+    "recommendation": "Rekomendasi untuk hidangan yang dapat dibuat",
     "generateReceipt": "Buat Resep",
     "cannotEmpty":"Tidak boleh kosong",
     "history":"Riwayat",
@@ -24,5 +24,6 @@
     "createRecipe":"Sedang membuat resep",
     "example":"Contoh : Garam, Gula, Bawang putih, Merica, Daging ayam, Tomat",
     "serverError":"Server error,",
+    "noInternet":"Tidak ada Internet",
     "tryMoment":"cobalah beberapa saat lagi."
 }

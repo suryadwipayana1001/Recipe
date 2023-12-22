@@ -1,1 +1,1 @@
-const String baseUrl = "https://tebak-jodoh.aditiyak.site/";
+const String baseUrl = "https://api.gold-dev.online/";
