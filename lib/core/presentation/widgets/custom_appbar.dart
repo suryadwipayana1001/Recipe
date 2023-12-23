@@ -18,29 +18,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      leading: automaticallyImplyLeading
-          ? Center(
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios_new,
-                  color: black,
-                ),
-              ),
-            )
-          : SizedBox(),
+      // leading: automaticallyImplyLeading
+      //     ? Center(
+      //         child: IconButton(
+      //           onPressed: () {
+      //             Navigator.pop(context);
+      //           },
+      //           icon: Icon(
+      //             Icons.arrow_back_ios_new,
+      //             color: black,
+      //           ),
+      //         ),
+      //       )
+      //     : SizedBox(),
       elevation: 3,
-      // leading: Padding(
-      //   padding: EdgeInsets.symmetric(vertical: sizeExtraSmall),
-      //   child: IconButton(
-      //     onPressed: onTap,
-      //     alignment: Alignment.center,
-      //     icon: Icon(Icons.menu),
-      //     color: black,
-      //   ),
-      // ),
+      leading: Padding(
+        padding: EdgeInsets.symmetric(vertical: sizeExtraSmall),
+        child: IconButton(
+          onPressed: onTap,
+          alignment: Alignment.center,
+          icon: Icon(Icons.menu),
+          color: black,
+        ),
+      ),
       centerTitle: true,
       toolbarHeight: height,
       backgroundColor: white,

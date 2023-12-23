@@ -25,5 +25,10 @@
   "example":"Example : Salt, sugar, garlic, pepper, chicken meat and tomato",
   "serverError":"Server error,",
   "noInternet":"No Internet",
-  "tryMoment":"please try again in a moment."
+  "tryMoment":"please try again in a moment.",
+  "save":"Save",
+  "recipeTitle":"Recipe Title",
+  "saveRecipe":"Save Recipe",
+  "enterRecipe":"Enter Recipe Title",
+  "myFavorite":"My Favorite"
 }

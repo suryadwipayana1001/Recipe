@@ -42,6 +42,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        widget.title != null
+            ? Text(
+                widget.title.toString(),
+                style: mediumNormalTextStyle(color: secondaryColor),
+              )
+            : SizedBox(),
+        smallVerticalSpacing(),
         SizedBox(
           width: widget.width ?? SizeConfig(context).appWidth(100),
           child: TextFormField(

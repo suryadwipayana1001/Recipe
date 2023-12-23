@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:recipeai/core/presentation/providers/result_state.dart';
+import 'package:recipeai/core/util/sql_helper.dart';
 import '../../../features/result_recipe/domain/usecase/result_usecase.dart';
 import '../../core.dart';
 
@@ -13,6 +14,8 @@ class CoreProvider with ChangeNotifier {
   // RewardedAd? _rewardAd;
   String? _language = "en";
   TextEditingController _ingredientsController = TextEditingController();
+  TextEditingController _titleHistoryController = TextEditingController();
+  List<Map<String, dynamic>> _recipeFavorite = [];
   int _headerSlider = 1;
   ResultState? _state;
   bool _ingredientsError = false;
@@ -74,6 +77,22 @@ class CoreProvider with ChangeNotifier {
   //   );
   // }
 
+  Future<void> addFavorite() async {
+    await SQLHelper.createItem(titleHistoryController.text, result);
+    refreshHistory();
+  }
+
+  void refreshHistory() async {
+    final data = await SQLHelper.getItems();
+    _recipeFavorite = data;
+    notifyListeners();
+  }
+
+  void deleteItem(int id) async {
+    await SQLHelper.deleteItem(id);
+    refreshHistory();
+  }
+
   Stream<ResultState> fetch() async* {
     yield ResultLoading();
     _state = ResultLoading();
@@ -98,9 +117,11 @@ class CoreProvider with ChangeNotifier {
   // RewardedAd? get rewardAd => _rewardAd;
   String? get language => _language;
   TextEditingController get ingredientsController => _ingredientsController;
+  TextEditingController get titleHistoryController => _titleHistoryController;
   int get headerSlider => _headerSlider;
   String? get result => _result;
   ResultState? get resultState => _state;
   bool get ingredientsError => _ingredientsError;
+  List<Map<String, dynamic>> get recipeFavorite => _recipeFavorite;
   GlobalKey<FormState> get formKey => _formKey;
 }

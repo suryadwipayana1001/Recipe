@@ -25,5 +25,10 @@
     "example":"Contoh : Garam, Gula, Bawang putih, Merica, Daging ayam, Tomat",
     "serverError":"Server error,",
     "noInternet":"Tidak ada Internet",
-    "tryMoment":"cobalah beberapa saat lagi."
+    "tryMoment":"cobalah beberapa saat lagi.",
+    "save":"Simpan",
+    "recipeTitle":"Judul Resep",
+    "saveRecipe":"Simpan Resep",
+    "enterRecipe":"Masukan Judul Resep",
+    "myFavorite":"Kesukaan Saya"
 }

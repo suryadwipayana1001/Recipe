@@ -61,8 +61,108 @@ class _ResultPageState extends State<ResultPage> {
                                                   subject: 'RecipeAI');
                                             },
                                             child: Icon(Icons.share)),
-                                        // smallHorizontalSpacing(),
-                                        // Icon(Icons.bookmark_border),
+                                        smallHorizontalSpacing(),
+                                        GestureDetector(
+                                          onTap: () async {
+                                            final coreProvider =
+                                                context.read<CoreProvider>();
+                                            showModalBottomSheet(
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              context: context,
+                                              elevation: 5,
+                                              isScrollControlled: true,
+                                              builder: (_) => Container(
+                                                decoration: BoxDecoration(
+                                                  color: white,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(20),
+                                                    topRight:
+                                                        Radius.circular(20),
+                                                  ),
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.close,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Center(
+                                                      child: Text(
+                                                        appLoc.saveRecipe,
+                                                        style:
+                                                            largeBoldTextStyle(),
+                                                      ),
+                                                    ),
+                                                    largeVerticalSpacing(),
+                                                    Padding(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal:
+                                                              sizeMedium),
+                                                      child: CustomTextField(
+                                                        title:
+                                                            appLoc.recipeTitle,
+                                                        controller: coreProvider
+                                                            .titleHistoryController,
+                                                        hintText:
+                                                            appLoc.enterRecipe,
+                                                      ),
+                                                    ),
+                                                    largeVerticalSpacing(),
+                                                    Padding(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal:
+                                                              sizeMedium),
+                                                      child: Align(
+                                                        alignment: Alignment
+                                                            .bottomRight,
+                                                        child: CustomButton(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                            Radius.circular(
+                                                                10.0),
+                                                          ),
+                                                          width: 100,
+                                                          height: 40,
+                                                          onPressed: () async {
+                                                            await coreProvider
+                                                                .addFavorite();
+                                                            coreProvider
+                                                                .titleHistoryController
+                                                                .text = '';
+                                                            if (!mounted)
+                                                              return;
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          text: appLoc.save,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    largeVerticalSpacing(),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Icon(Icons.bookmark_border),
+                                        ),
                                       ],
                                     ),
                                   ],

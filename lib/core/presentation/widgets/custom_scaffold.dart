@@ -46,7 +46,7 @@ class _AppContainerState extends State<AppContainer> {
           _key.currentState!.openDrawer();
         },
       ),
-      // drawer: CustomDrawer(replacePage: widget.replacePage),
+      drawer: CustomDrawer(replacePage: widget.replacePage),
       body: widget.body,
       floatingActionButtonLocation: widget.floatingActionButtonLocation,
       floatingActionButton: widget.floatingActionButton,

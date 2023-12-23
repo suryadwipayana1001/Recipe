@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipeai/core/core.dart';
+import 'package:recipeai/core/presentation/providers/core_provider.dart';
+import 'package:recipeai/features/favorite/presentations/pages/favorite_page.dart';
 
 import '../providers/drawer_provider.dart';
 
@@ -15,7 +17,8 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<DrawerProvider>(builder: (context, provider, _) {
+    return Consumer2<DrawerProvider, CoreProvider>(
+        builder: (context, provider, coreProvider, _) {
       return SafeArea(
         child: Drawer(
           backgroundColor: primaryColor,
@@ -39,7 +42,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            appLoc.appName,
+                            appLoc.appBarName,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: largeBoldTextStyle(color: white),
@@ -70,10 +73,61 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       children: [
                         mediumVerticalSpacing(),
                         Text(
-                          appLoc.history,
+                          appLoc.myFavorite,
                           style: largeBoldTextStyle(),
                         ),
-                        mediumVerticalSpacing()
+                        mediumVerticalSpacing(),
+                        Column(
+                          children: List.generate(
+                            context.watch<CoreProvider>().recipeFavorite.length,
+                            (index) => Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                        if (widget.replacePage) {
+                                          Navigator.pushReplacementNamed(
+                                              context, FavoritePage.routeName,
+                                              arguments: {
+                                                "result": coreProvider
+                                                        .recipeFavorite[index]
+                                                    ['description']
+                                              });
+                                        } else {
+                                          Navigator.pushNamed(
+                                              context, FavoritePage.routeName,
+                                              arguments: {
+                                                "result": coreProvider
+                                                        .recipeFavorite[index]
+                                                    ['description']
+                                              });
+                                        }
+                                      },
+                                      child: Container(
+                                        width: SizeConfig(context).appWidth(65),
+                                        child: Text(
+                                          coreProvider.recipeFavorite[index]
+                                              ['title'],
+                                          style: mediumNormalTextStyle(),
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      child: Icon(Icons.delete),
+                                      onTap: () {
+                                        coreProvider.deleteItem(coreProvider
+                                            .recipeFavorite[index]['id']);
+                                      },
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
